@@ -28,13 +28,16 @@
 
 // Palette.
 	$palette: (
-		bg:					#ffffff,
+		bg:					  #ffffff,
 		bg-alt:				#e1dfe8,
-		fg:					#414f57,
+		fg:					  #414f57,
 		fg-bold:			#313f47,
 		fg-light:			#616f77,
 		border:				#c8cccf,
-		accent1:			#ffa596,
-		accent2:			#00e4ff,
-		highlight:			#ff7496
+		// accent1:			#ffa596,
+		// accent2:			#00e4ff,
+		// highlight:		#ff7496
+		accent1:			#BADA55,
+		accent2:			#6D3570,
+		highlight:		#6D3570
 	);
