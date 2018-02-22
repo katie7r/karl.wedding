@@ -1,3 +1,5 @@
+/* TODO SASS (colors, additional style changes) */
+
 @charset "UTF-8";
 @import url(font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300");
@@ -151,6 +153,11 @@
 			}
 
 		}
+
+	#main a {
+		color: #6D3570;
+		font-weight: 600;
+	}
 
 	a {
 		-moz-transition: color 0.2s ease, border-color 0.2s ease;
@@ -531,6 +538,13 @@
 					white-space: nowrap;
 				}
 
+					ul.icons li a.active:hover,
+					ul.icons li a.active:hover:before {
+						background-color: rgba(200, 204, 207, 0.1);
+						border-color: #c8cccf;
+						text-shadow: 1.25px 0px 0px #c8cccf, -1.25px 0px 0px #c8cccf, 0px 1.25px 0px #c8cccf, 0px -1.25px 0px #c8cccf;
+					}
+
 					ul.icons li a:before {
 						-moz-osx-font-smoothing: grayscale;
 						-webkit-font-smoothing: antialiased;
@@ -563,7 +577,22 @@
 
 					ul.icons li a:hover {
 						border-color: #6D3570;
+						background-color: rgba(109, 53, 112, 0.1);
 					}
+
+					header .avatar ul.icons {
+						margin-top: -20px;
+					}
+
+					header .avatar ul.icons li a {
+						background-color: #6D3570;
+						border-color: #6D3570;
+					}
+
+					header .avatar ul.icons li a:before {
+						text-shadow: 1.25px 0px 0px #6D3570, -1.25px 0px 0px #6D3570, 0px 1.25px 0px #6D3570, 0px -1.25px 0px #6D3570;
+					}
+
 
 			@media screen and (max-width: 480px) {
 
