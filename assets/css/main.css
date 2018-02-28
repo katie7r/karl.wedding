@@ -730,6 +730,7 @@
 /* Main */
 
 	#main {
+		width: 430px;
 		position: relative;
 		max-width: 100%;
 		min-width: 27em;
