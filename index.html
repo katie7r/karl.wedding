@@ -24,16 +24,19 @@
 
 				<!-- Main -->
 					<section id="main">
-						<header>
+
+						<header class="home">
 							<span class="avatar"><img src="images/avatar-tmp.jpg" alt="Tony & Katie" /></span>
 							<h1>KAR + ARL</h1>
-							<p>&nbsp;Kathleen A Russ + Antonio R Linero</p>
+							<p>&nbsp;Kathleen Russ + Antonio Linero</p>
 						</header>
 
-						<hr />
-						<h2>To be married Jun 29, 2018</h2>
-						<p>No ceremony, just a reception</p>
-						<hr />
+						<article id="home">
+							<hr />
+							<h2>To be married Jun 29, 2018</h2>
+							<p>No ceremony, just a reception</p>
+							<hr />
+						</article>
 
 						<footer>
 							<ul class="icons">
@@ -41,16 +44,59 @@
 								<!-- TODO also tooltips of some sort so people know what they're clicking on -->
 								<!-- TODO probably separate page(s) for things like travel/reservation info, registry stuff, etc. -->
 								<li>
-									<a href="./travel.html" class="fa-car">Travel and Reservations</a>
+									<a href="#travel" class="site fa-car">Travel and Reservations</a>
 								</li>
 								<li>
-									<a href="./photos.html" class="fa-camera">Wedding Photo App</a>
+									<a href="#photos" class="site fa-camera">Wedding Photo App</a>
 								</li>
 								<li>
-									<a href="./registry.html" class="fa-gift">Registry Information</a>
+									<a href="#registry" class="site fa-gift">Registry Information</a>
 								</li>
 							</ul>
 						</footer>
+
+						<!-- "Pages" -->
+
+						<article id="photos">
+							<h1>Photos</h1>
+							<p>We are asking guests to download the <a href="#" target="_blank" rel="nofollow">SOMETHING</a> app, which will automatically upload any pictures taken to our wedding album.</p>
+
+							<p>
+								You can download the app for<br />
+								<a href="#" target="_blank" rel="nofollow">iPhone</a> or <a href="#" target="_blank" rel="nofollow">Android</a>.
+							</p>
+							<hr />
+						</article>
+
+						<article id="registry">
+							<h1>Registry</h1>
+							<p>
+								If you'd like to get us a gift, we've set up a registry <a href="https://www.weddingwire.com/wedding-registry/registry/kathleen-russ-and-antonio-linero" target="_blank" rel="nofollow">here</a>.
+							</p>
+							<hr />
+
+							<h2>Honeymoon Fund</h2>
+							<p>
+								Alternatively, if you'd like, we've set up a place to contribute to our <a href="http://registered.at/karl-wedding" target="_blank" rel="nofollow">honeymoon fund</a>.
+							</p>
+							<hr />
+						</article>
+
+						<article id="travel">
+							<h1>Travel</h1>
+							<p>
+								If you're traveling in from out of town, we'll have some information about reservations and whatnot closer to the day of the event.
+							</p>
+							<hr />
+						</article>
+
+						<header class="page">
+							<span class="avatar">
+								<ul class="icons">
+									<li><a href="#home" class="site fa-home"></a></li>
+								</ul>
+							</span>
+						</header>
 					</section>
 
 				<!-- Footer -->
@@ -68,6 +114,8 @@
 			</div>
 
 		<!-- Scripts -->
+			<script src="assets/js/lodash.js"></script>
+			<script src="assets/js/main.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
 			<script>
 				if ('addEventListener' in window) {
