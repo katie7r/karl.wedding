@@ -1,6 +1,6 @@
 (function() {
 
-  // preparePage(); // rearrange elements where javascript is enabled
+  preparePage(); // rearrange elements where javascript is enabled
 
   var main     = document.getElementById('main');
   var navLinks = document.querySelectorAll('a.site');
