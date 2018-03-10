@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<!--
+	THEME:
+	Identity by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>KAR + ARL &#8226; RSVP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-loading">
+		<!-- TODO words :| -->
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main">
+
+						<header class="home">
+							<span class="avatar">
+								<ul class="icons">
+									<li><a href="index.html" class="site fa-home"></a></li>
+								</ul>
+							</span>
+						</header>
+
+						<article id="home">
+							<h1>RSVP Details</h1>
+
+							<form method="get" action="https://script.google.com/macros/s/AKfycbyv2mGkNzivuyn6-vwFq14cfFfoq3jZeJv8O343aEfBrZGYZxQW/exec">
+								<div class="field">
+									<input type="text" name="who" id="who" placeholder="Your Name(s)" required />
+								</div>
+
+								<div class="field field-left">
+									<label>Are you attending?</label>
+									<input type="radio" id="rsvp_yes" name="rsvp" value="yes" required />
+									<label for="rsvp_yes">Yes</label>
+									<input type="radio" id="rsvp_no" name="rsvp" value="no" required />
+									<label for="rsvp_no">No</label>
+								</div>
+
+								<div class="field field-right">
+									<label for="how_many">How many?</label>
+									<input type="number" name="how_many" id="how_many" value="0" min="0" required />
+								</div>
+
+								<div class="field">
+									<textarea name="message" id="message" placeholder="Food allergies, song requests, booster seats needed, &c..." rows="4"></textarea>
+								</div>
+
+								<ul class="actions">
+									<li>
+										<input type="submit" class="button" value="Submit"></input>
+									</li>
+								</ul>
+							</form>
+						</article>
+
+						<article id="thanks">
+							<h1>Thanks!</h1>
+							<p>&#10084;</p>
+						</article>
+
+						<footer>
+							<a href="index.html">Back</a>
+						</footer>
+
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="copyright">
+							<li>
+								&copy; <a href="https://github.com/katie7r/karl.wedding" target="_blank" rel="nofollow">Katie Russ</a>
+							</li>
+							<li>
+								Design: <a href="https://html5up.net" target="_blank" rel="nofollow">HTML5 UP</a>
+							</li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/lodash.js"></script>
+			<script src="assets/js/main.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
+			<script>
+				if ('addEventListener' in window) {
+					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+				}
+			</script>
+
+	</body>
+</html>

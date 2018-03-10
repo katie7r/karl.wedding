@@ -264,6 +264,20 @@
 			margin: 0 0 1.5em 0;
 		}
 
+
+		form > .field.field-left {
+			width: 70%;
+			display: inline-block;
+			float: left;
+			text-align: left;
+		}
+		form > .field.field-right {
+			width: 30%;
+			display: inline-block;
+			text-align: left;
+		}
+
+
 			form > .field > :last-child {
 				margin-bottom: 0;
 			}
@@ -276,6 +290,7 @@
 	}
 
 	input[type="text"],
+	input[type="number"],
 	input[type="password"],
 	input[type="email"],
 	input[type="tel"],
@@ -294,8 +309,12 @@
 		text-decoration: none;
 		width: 100%;
 	}
+	input[type="number"] {
+		padding-right: 0;
+	}
 
 		input[type="text"]:invalid,
+		input[type="number"]:invalid,
 		input[type="password"]:invalid,
 		input[type="email"]:invalid,
 		input[type="tel"]:invalid,
@@ -305,6 +324,7 @@
 		}
 
 		input[type="text"]:focus,
+		input[type="number"]:focus,
 		input[type="password"]:focus,
 		input[type="email"]:focus,
 		input[type="tel"]:focus,
@@ -347,6 +367,7 @@
 		}
 
 	input[type="text"],
+	input[type="number"],
 	input[type="password"],
 	input[type="email"],
 	select {
@@ -407,6 +428,7 @@
 				text-align: center;
 				top: 0.15em;
 				width: 1.65em;
+				padding-left: 0.2em;
 			}
 
 		input[type="checkbox"]:checked + label:before,
@@ -653,11 +675,16 @@
 		background-color: transparent;
 		border-radius: 4px;
 		border: solid 1px #c8cccf;
-		color: #414f57 !important;
+		color: #414f57;
 		cursor: pointer;
 		text-align: center;
 		text-decoration: none;
 		white-space: nowrap;
+	}
+	input[type="submit"].button {
+		background-color: rgba(109, 53, 112, 0.1);
+		border-color: #6D3570;
+		color: #6D3570;
 	}
 
 		input[type="submit"]:hover,
@@ -666,7 +693,11 @@
 		button:hover,
 		.button:hover {
 			border-color: #6D3570;
-			color: #6D3570 !important;
+			color: #6D3570;
+		}
+		input[type="submit"].button:hover {
+			background-color: #6D3570;
+			color: #FFF;
 		}
 
 		input[type="submit"].icon,
@@ -765,6 +796,8 @@
 				margin: 0 auto;
 				border-radius: 100%;
 				box-shadow: 0 0 0 1.5em #ffffff;
+				max-height: 122px;
+				max-width: 122px;
 			}
 
 			#main .avatar:before {
