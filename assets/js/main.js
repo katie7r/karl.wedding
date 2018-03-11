@@ -2,90 +2,109 @@
 
   preparePage(); // rearrange elements where javascript is enabled
 
-  var main     = document.getElementById('main');
-  var navLinks = document.querySelectorAll('a.site');
-  var headers  = document.querySelectorAll('#main header');
-  var articles = document.querySelectorAll('#main article');
+  var main     = $('#main');
+  var navLinks = $('a.site');
+  var headers  = $('#main header');
+  var articles = $('#main article');
+
+  var rsvpForm = $('#rsvp-form');
 
   // site links show and hide elements
-  _.forEach(navLinks, function(link) {
-    link.onclick = siteLinkOnclick;
+  navLinks.on('click', siteLinkOnClick);
 
-    function siteLinkOnclick(e) {
-      e.preventDefault();
-
-      var target  = link.getAttribute('href');
-      var header  = document.querySelector('header' + (target === '#home' ? '.home' : '.page'));
-      var article = document.querySelector('article' + target);
-
-      _.forEach(headers, function(h) { h.style.display = 'none'; });
-      header.style.display = 'block';
-
-      _.forEach(articles, function(a) { a.style.display = 'none'; });
-      article.style.display = 'block';
-
-      _.forEach(navLinks, function(n) { n.classList.remove('active'); });
-      link.classList.add('active');
-
-      // TODO recreate effect on #main (?) when 'page' changes,
-      // because tony really wants that to happen
-
-      // // main.removeAttribute('id');
-      // document.body.classList.add('is-loading');
-      //
-      // // // main.style.animation = 'none';
-      // // // main.style.transition = 'none';
-      // main.style.opacity = 0;
-      // // main.style.transform = 'rotate(15deg)';
-      // main.style.webkitTransform = 'rotate(15deg)';
-      //
-      //
-      // main.style.opacity = 0.95;
-      // // main.style.transformOrigin = '50% 50%';
-      // // main.style.transform = 'rotateX(0deg)';
-      // main.style.webkitTransform = 'rotateX(0deg)';
-      // // main.style.transition = 'opacity 1s ease, transform 1s ease';
-      //
-      // // var clone = main.cloneNode(true);
-      // // clone.id = 'main';
-      // // clone.classList.add('main');
-      // // main.parentNode.replaceChild(clone, main);
-      //
-      // // main.id = 'main';
-      // document.body.classList.remove('is-loading');
-    }
-
-  });
+  // submit RSVP form via AJAX
+  rsvpForm.on('submit', submitRSVP);
 
   function preparePage() {
 
     // hide all but home page header/body initially
 
-    var headers  = document.querySelectorAll('#main header');
-    var articles = document.querySelectorAll('#main article');
+    var headers  = $('#main header');
+    var articles = $('#main article');
 
-    _.forEach(headers, function(header) {
-      if (header.className !== 'home') {
-        header.style.display = 'none';
-      }
-    });
-
-    _.forEach(articles, function(article) {
-      if (article.id !== 'home') {
-        article.style.display = 'none';
-      }
-    });
+    headers.filter(':not(.home)').hide();
+    articles.filter(':not(#home)').hide();
 
     // move footer to the bottom and page header to the top
 
-    var main = document.getElementById('main');
+    var main = $('#main');
 
-    var mainHeader = document.querySelector('#main header.home');
-    var pageHeader = document.querySelector('#main header.page');
-    main.insertBefore(pageHeader, mainHeader);
+    var mainHeader = $('#main header.home');
+    var pageHeader = $('#main header.page');
+    main.prepend(pageHeader, mainHeader);
 
-    var footer   = document.querySelector('#main footer');
-    main.appendChild(footer);
+    var footer = $('#main footer');
+    main.append(footer);
+
+  }
+
+  function siteLinkOnClick(e) {
+    e.preventDefault();
+
+    var link    = $(this);
+    var target  = link.attr('href');
+    var header  = $('header' + (target === '#home' ? '.home' : '.page'));
+    var article = $('article' + target);
+
+    headers.hide();
+    header.show();
+
+    articles.hide();
+    article.show();
+
+    navLinks.removeClass('active');
+    link.addClass('active');
+
+    // TODO recreate effect on #main (?) when 'page' changes,
+    // because tony really wants that to happen
+
+    // // main.removeAttribute('id');
+    // document.body.classList.add('is-loading');
+    //
+    // // // main.style.animation = 'none';
+    // // // main.style.transition = 'none';
+    // main.style.opacity = 0;
+    // // main.style.transform = 'rotate(15deg)';
+    // main.style.webkitTransform = 'rotate(15deg)';
+    //
+    //
+    // main.style.opacity = 0.95;
+    // // main.style.transformOrigin = '50% 50%';
+    // // main.style.transform = 'rotateX(0deg)';
+    // main.style.webkitTransform = 'rotateX(0deg)';
+    // // main.style.transition = 'opacity 1s ease, transform 1s ease';
+    //
+    // // var clone = main.cloneNode(true);
+    // // clone.id = 'main';
+    // // clone.classList.add('main');
+    // // main.parentNode.replaceChild(clone, main);
+    //
+    // // main.id = 'main';
+    // document.body.classList.remove('is-loading');
+  }
+
+  function submitRSVP(e) {
+    e.preventDefault();
+
+    var url   = rsvpForm.attr('action');
+    var jqxhr = $.ajax({
+      url:      url,
+      method:   'GET', // Google sheet submit script requires GET
+      dataType: 'json',
+      data:     rsvpForm.serialize(),
+
+    }).done(function(data) {
+      console.log('Successfully saved form;', data);
+
+      $('article#home').hide();
+      $('article#thanks').show();
+
+    }).fail(function(data) {
+      console.log('Failed to save form;', data.error);
+
+      var msg = $('<p class="error">An error occurred. Please try to submit the form again, or email Katie or Tony directly.</p>');
+      rsvpForm.prepend(msg);
+    });
 
   }
 

@@ -254,6 +254,10 @@
 		margin: 3em 0;
 	}
 
+.error {
+	color: #6D3570;
+}
+
 /* Form */
 
 	form {
