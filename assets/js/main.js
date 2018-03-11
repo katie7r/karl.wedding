@@ -16,6 +16,7 @@
   rsvpForm.on('submit', submitRSVP);
 
   function preparePage() {
+    $('#waiting').hide();
 
     // hide all but home page header/body initially
 
@@ -85,6 +86,8 @@
 
   function submitRSVP(e) {
     e.preventDefault();
+    $('input[type=submit]').hide();
+    $('#waiting').show();
 
     var url   = rsvpForm.attr('action');
     var jqxhr = $.ajax({
@@ -94,12 +97,14 @@
       data:     rsvpForm.serialize(),
 
     }).done(function(data) {
+      $('#waiting').hide();
       console.log('Successfully saved form;', data);
 
       $('article#home').hide();
       $('article#thanks').show();
 
     }).fail(function(data) {
+      $('#waiting').hide();
       console.log('Failed to save form;', data.error);
 
       var msg = $('<p class="error">An error occurred. Please try to submit the form again, or email Katie or Tony directly.</p>');
