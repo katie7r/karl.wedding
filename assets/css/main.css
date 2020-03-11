@@ -260,6 +260,10 @@
 	color: #6D3570;
 }
 
+.strike {
+	text-decoration: line-through;
+}
+
 /* Form */
 
 	form {
@@ -736,7 +740,8 @@
 		input[type="reset"].small,
 		input[type="button"].small,
 		button.small,
-		.button.small {
+		.button.small,
+		p.small {
 			font-size: 0.8em;
 		}
 
@@ -806,7 +811,7 @@
 				max-width: 122px;
 			}
 
-			#main .avatar:before {
+			#main header .avatar:before {
 				content: '';
 				display: block;
 				position: absolute;
