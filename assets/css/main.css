@@ -21,9 +21,22 @@
 		vertical-align: baseline;
 	}
 
-	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	article, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 		display: block;
 	}
+
+	aside {
+		display: inline-block;
+		width: 50%;
+	}
+
+		aside:first-of-type {
+			margin-left: -10%;
+		}
+
+		aside:last-of-type {
+			margin-right: -10%;
+		}
 
 	body {
 		line-height: 1;
